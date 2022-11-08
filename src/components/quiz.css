@@ -104,7 +104,9 @@ section .option_list .option:hover {
 section .option_list .option.disabled {
   pointer-events: none;
 }
-
+section .option_list .option.active {
+  background-color: #0f3b69;
+}
 /* .option_list .option.tick {
   color: #23903c;
   border-color: #23903c;

@@ -1,6 +1,12 @@
 import React from "react";
 
-const QuizMain = ({ currentQue, QuizData, clicked, handleAnswerOption }) => {
+const QuizMain = ({
+  currentQue,
+  QuizData,
+  clicked,
+  handleAnswerOption,
+  //   selectedAnswer,
+}) => {
   return (
     <section>
       <div className="que_text">{QuizData[currentQue].question}</div>
@@ -8,10 +14,10 @@ const QuizMain = ({ currentQue, QuizData, clicked, handleAnswerOption }) => {
         {QuizData[currentQue].answersOption.map((answer, i) => {
           return (
             <button
-              //   className={clicked ? "option disabled" : "option"}
-              className="option"
+              className={clicked ? "option disabled" : "option"}
+              //   className="option"
               key={i}
-              onClick={() => handleAnswerOption(answer.isCorrect)}
+              onClick={(e) => handleAnswerOption(answer.isCorrect, e)}
             >
               {answer.answerText}
             </button>

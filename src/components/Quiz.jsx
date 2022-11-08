@@ -14,18 +14,20 @@ const Quiz = () => {
   const [correct, setCorrect] = useState(0);
   const [clicked, setClicked] = useState(false);
   const [timer, setTimer] = useState(15);
-
+  //   const [selectedAnswer, setSelectedAnswer] = useState(null);
   useEffect(() => {
     setInterval(() => {
       setTimer(timer - 1);
     }, 1000);
   });
   // -------------- Functions --------------
-  const handleAnswerOption = (isCorrect) => {
+  const handleAnswerOption = (isCorrect, e) => {
+    console.log(e.target.name);
     if (isCorrect) {
       setCorrect(correct + 1);
     }
     setClicked(true);
+    // setSelectedAnswer(isCorrect);
   };
 
   const handleReset = () => {
@@ -53,6 +55,7 @@ const Quiz = () => {
             QuizData={QuizData}
             clicked={timer > 0 ? clicked : !clicked}
             handleAnswerOption={handleAnswerOption}
+            // selectedAnswer={selectedAnswer}
           />
 
           <QuizFooter
